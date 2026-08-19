@@ -1,0 +1,4 @@
+import {useState} from 'react';
+import ArrowControls from '../ui/ArrowControls';
+import {ASSET_PATH,reviews} from '../../data/content';
+export default function Reviews(){const [start,setStart]=useState(0);const ordered=[...reviews.slice(start),...reviews.slice(0,start)];return <section className="reviews wrap"><div className="review-head"><div><h2>Customer Review</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit lorem sagittis, proin ut lectus sed ut. Enim egestas enim id duis.</p></div><ArrowControls label="reviews" onPrevious={()=>setStart((start+reviews.length-1)%reviews.length)} onNext={()=>setStart((start+1)%reviews.length)}/></div><div className="review-grid">{ordered.map(({quote,name,role,image})=><article key={name}><b className="quote">”</b><p>{quote}</p><div><img src={`${ASSET_PATH}${image}`} alt={name}/><span><b>{name}</b><small>{role}</small></span></div></article>)}</div></section>}

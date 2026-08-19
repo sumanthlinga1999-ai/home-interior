@@ -1,0 +1,4 @@
+import {useState} from 'react';
+import ArrowControls from '../ui/ArrowControls';
+import {ASSET_PATH,projects} from '../../data/content';
+export default function Projects(){const [current,setCurrent]=useState(0);return <section id="furniture" className="projects wrap"><div className="project-images"><img src={`${ASSET_PATH}${projects[current]}`} alt="Completed interior project"/><img src={`${ASSET_PATH}${projects[(current+1)%projects.length]}`} alt="Completed dining room project"/></div><div id="projects"><h2>800+ Projects<br/>All Over The World</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit lorem sagittis, proin ut lectus sed ut. Enim egestas enim id duis. Eu aliquam nec risus bibendum nulla sit et volutpat.</p><ArrowControls label="projects" onPrevious={()=>setCurrent((current+projects.length-1)%projects.length)} onNext={()=>setCurrent((current+1)%projects.length)}/></div></section>}

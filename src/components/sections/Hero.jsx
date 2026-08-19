@@ -1,0 +1,3 @@
+import Button from '../ui/Button';
+import {ASSET_PATH} from '../../data/content';
+export default function Hero(){return <section id="home" className="hero-inner wrap"><div className="hero-copy"><h1>Design Your Home<br/>With Modern<br/>Interior</h1><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br/>Imperdiet tempus felis vitae sit est quisque.</p><Button light>Contact Us</Button></div><div className="hero-visual"><img src={`${ASSET_PATH}extracted-14.jpg`} alt="Modern living room with caramel leather sofa"/><div className="slide-meta"><span>⌃</span><span>⌄</span><small>01<br/><i></i><br/>05</small></div><a href="#about" className="down" aria-label="Explore services">↓</a></div></section>}
