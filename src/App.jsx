@@ -13,6 +13,8 @@ import useScrollReveal from './hooks/useScrollReveal';
 export default function App() {
   const path=window.location.pathname;
   if(path==='/login'||path==='/signup')return <ToastProvider><AuthPage mode={path.slice(1)}/></ToastProvider>;
+  const hasSession=Boolean(localStorage.getItem('slikonues_session'));
+  if(!hasSession){let hasAccount=false;try{hasAccount=(JSON.parse(localStorage.getItem('slikonues_users'))||[]).length>0}catch{}window.location.replace(hasAccount?'/login':'/signup');return null}
   return <ToastProvider><Home/></ToastProvider>;
 }
 function Home(){useScrollReveal();return <><div className="hero-shell"><Header /><Hero /></div><main><Benefits /><Studio /><Projects /><Process /><Reviews /></main><Footer /></>}
